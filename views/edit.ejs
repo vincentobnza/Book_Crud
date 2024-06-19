@@ -1,0 +1,69 @@
+<title><%= title %></title> <%- include("./layout/template.ejs") %> <%-
+include("./layout/Header.ejs") %>
+
+<div
+  class="w-full max-w-screen-md mx-auto min-h-[75vh] p-8 rounded-2xl border border-zinc-300 flex flex-col justify-center items-center gap-2"
+>
+  <h3 class="font-black mb-8">Edit <%= book.title %> ✏️</h3>
+
+  <form
+    action="/books/update/<%= book.id %>"
+    method="POST"
+    class="w-full flex flex-col justify-center items-center space-y-8"
+  >
+    <input
+      type="text"
+      name="title"
+      placeholder="Book Title"
+      value="<%= book.title %>"
+      class="w-[300px] h-[45px] border-b border-zinc-400 outline-none text-center"
+      required
+    />
+
+    <div class="w-full grid md:grid-cols-3 gap-4">
+      <input
+        type="text"
+        name="author"
+        placeholder="Author"
+        value="<%= book.author %>"
+        class="w-full h-10 border-b border-zinc-400 outline-none text-center"
+        required
+      />
+      <input
+        type="date"
+        name="publishedDate"
+        placeholder="Publish Date"
+        value="<%= book.publishedDate %>"
+        class="w-full h-10 border-b border-zinc-400 outline-none text-center"
+      />
+      <input
+        type="text"
+        name="genre"
+        placeholder="Book Genre"
+        value="<%= book.genre %>"
+        class="w-full h-10 border-b border-zinc-400 outline-none text-center"
+        required
+      />
+    </div>
+
+    <div class="flex">
+      <input
+        type="text"
+        name="description"
+        type="text"
+        name="description"
+        placeholder="Description"
+        value="<%= book.description %>"
+        class="w-[400px] h-10 border-b border-zinc-400 outline-none text-center"
+        required
+      />
+    </div>
+
+    <button
+      type="submit"
+      class="py-2 w-[130px] rounded-full bg-zinc-800 text-white font-sm font-black"
+    >
+      Publish 📝
+    </button>
+  </form>
+</div>

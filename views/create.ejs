@@ -1,0 +1,63 @@
+<title><%= title %></title>
+<%- include("./layout/template.ejs") %> <%- include("./layout/Header.ejs") %>
+
+<div
+  class="w-full max-w-screen-md mx-auto min-h-[75vh] p-8 rounded-2xl border border-zinc-300 flex flex-col justify-center items-center gap-2"
+>
+  <h3 class="font-black mb-8">Add Book ✏️</h3>
+
+  <form
+    action="/books/create"
+    method="POST"
+    class="w-full flex flex-col justify-center items-center space-y-8"
+  >
+    <input
+      type="text"
+      name="title"
+      placeholder="Book Title"
+      class="w-[300px] h-[45px] border-b border-zinc-400 outline-none text-center"
+      required
+    />
+
+    <div class="w-full grid md:grid-cols-3 gap-4">
+      <input
+        type="text"
+        name="author"
+        placeholder="Author"
+        class="w-full h-10 border-b border-zinc-400 outline-none text-center"
+        required
+      />
+      <input
+        type="date"
+        name="publishedDate"
+        placeholder="Publish Date"
+        class="w-full h-10 border-b border-zinc-400 outline-none text-center"
+      />
+      <input
+        type="text"
+        name="genre"
+        placeholder="Book Genre"
+        class="w-full h-10 border-b border-zinc-400 outline-none text-center"
+        required
+      />
+    </div>
+
+    <div class="flex">
+      <textarea
+        name="description"
+        type="text"
+        name="description"
+        placeholder="Description"
+        class="w-[400px] h-10 border-b border-zinc-400 outline-none text-center"
+        required
+      ></textarea>
+    </div>
+
+    <button
+      type="submit"
+      class="py-2 w-[130px] rounded-full bg-zinc-800 text-white font-sm font-black"
+    >
+      Publish 📝
+    </button>
+  </form>
+</div>

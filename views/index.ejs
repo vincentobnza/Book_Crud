@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <%- include("./layout/template.ejs") %>
+  </head>
+  <body class="text-zinc-800">
+    <%- include("./layout/Header.ejs") %>
+    <div
+      class="w-full max-w-screen-lg mx-auto flex flex-col justify-center items-center mt-24 text-center p-8 rounded-2xl"
+    >
+      <h1 class="text-3xl md:text-4xl font-black mb-3">
+        Want to publish your new book? 🧐
+      </h1>
+      <p class="font-semibold">Be a professional book writer 👨‍🎤</p>
+
+      <div class="flex flex-col space-y-10 mt-24">
+        <a
+          href="/books/create"
+          class="bg-zinc-800 text-white font-black px-6 py-3 rounded-full cursor-pointer text-sm"
+        >
+          Publish New
+        </a>
+
+        <a
+          href="/books"
+          class="underline decoration-2 underline-offset-8 text-sm font-black"
+        >
+          See published books
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

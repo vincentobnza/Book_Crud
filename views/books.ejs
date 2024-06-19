@@ -1,0 +1,31 @@
+<%- include("./layout/template.ejs") %> <%- include("./layout/Header.ejs") %>
+<div
+  class="w-full max-w-screen-lg mx-auto min-h-[70vh] p-2 rounded-2xl border border-zinc-100 flex flex-col text-center gap-2 overflow-hidden"
+>
+  <% if (books && books.length > 0) { %>
+  <title>Published Books</title>
+  <div class="grid md:grid-cols-4 gap-2 p-5">
+    <% books.forEach((book, idx) => { %>
+    <a
+      href="/books/<%= book._id %>"
+      key="<%= idx %>"
+      class="w-full bg-white shadow-xl shadow-zinc-100 border border-zinc-300 rounded-lg flex flex-col justify-left items-left text-left p-6 hover:opacity-80 book-card"
+    >
+      <h1 class="text-xl font-black mb-4"><%= book.title %></h1>
+      <h2 class="text-sm font-black text-zinc-700 mb-2">
+        by <%= book.author %>
+      </h2>
+      <h2 class="text-xs font-medium text-zinc-400">
+        Publish Date: <% if (book.publishedDate && !isNaN(new
+        Date(book.publishedDate).getTime())) { %> <%= new
+        Date(book.publishedDate).toLocaleDateString('en-US', { year: 'numeric',
+        month: 'long', day: 'numeric' }) %> <% } else { %> N/A <% } %>
+      </h2>
+    </a>
+    <% }); %>
+  </div>
+  <% } else { %>
+  <title>No Books Found</title>
+  <h3 class="mt-10 font-black">No Books Found 🤷‍♂️</h3>
+  <% } %>
+</div>
